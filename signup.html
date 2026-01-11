@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Student Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">Axiomora</a>
+            <div class="nav-links">
+                <a href="index.html#problem">Challenge</a>
+                <a href="index.html#solution">Philosophy</a>
+                <a href="index.html#features">Features</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="index.html#faq">FAQ</a>
+            </div>
+            <a href="signin.html" class="nav-btn">Sign In</a>
+        </div>
+    </nav>
+
+    <div class="signup-container">
+        <div class="form-wrapper">
+            <div class="header-center" style="margin-bottom: 30px;">
+                <h1>Create Account</h1>
+                <p>Start tracking your personal growth today.</p>
+            </div>
+
+            <div class="auth-options">
+                <button class="btn-social">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" width="18" alt="G"> Google
+                </button>
+                <button class="btn-social">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" width="18" alt="A"> Apple
+                </button>
+            </div>
+
+            <div class="divider">Or continue with email</div>
+
+            <form onsubmit="handleSignup(event)">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" required placeholder="Jane Doe">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" required placeholder="jane@example.com">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" required placeholder="••••••••">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" class="form-input" required placeholder="••••••••">
+                </div>
+
+                <button type="submit" class="btn-primary">Create Account</button>
+                <p style="text-align:center; font-size:0.8rem; color:#86868b; margin-top:15px;">
+                    By signing up, you agree to our Terms & Privacy Policy.
+                </p>
+                <p style="text-align:center; font-size:0.9rem; color:#86868b; margin-top:20px;">
+                    Already have an account? <a href="signin.html" style="color:#0071E3; text-decoration:none; font-weight:500;">Log in</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="signup.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | Growth</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">Axiomora</a>
+            <div class="nav-links">
+                <a href="index.html#problem">Challenge</a>
+                <a href="index.html#solution">Philosophy</a>
+                <a href="index.html#features">Features</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="index.html#faq">FAQ</a>
+            </div>
+            <a href="signin.html" class="nav-btn">Sign In</a>
+        </div>
+    </nav>
+
+    <section class="pricing-section fade-up">
+        <div class="container">
+            <div class="pricing-header">
+                <h1 class="hero-headline">Invest in your growth.</h1>
+                <p class="hero-subtext">Start with a 1-month free trial. No card required.<br>Take your time. This is here when you’re ready.</p>
+            </div>
+
+            <div class="pricing-toggles">
+                <div class="toggle-group">
+                    <button class="toggle-btn active" data-period="monthly">Monthly</button>
+                    <button class="toggle-btn" data-period="yearly">Yearly</button>
+                </div>
+                <div class="toggle-group">
+                    <button class="toggle-btn active" data-currency="inr">INR (₹)</button>
+                    <button class="toggle-btn" data-currency="usd">USD ($)</button>
+                </div>
+            </div>
+
+            <div class="plan-group-title">Student Plans</div>
+            <div class="pricing-grid">
+                <!-- Basic Plan -->
+                <div class="pricing-card">
+                    <div class="plan-name">Basic</div>
+                    <div class="plan-original-price" data-plan-original="basic"></div>
+                    <div class="price-wrapper">
+                        <div class="plan-price" data-plan="basic">₹149</div>
+                        <div class="plan-period">/ month</div>
+                    </div>
+                    <div class="plan-savings" data-plan-savings="basic"></div>
+                    <ul class="plan-features">
+                        <li>Personal growth tracking</li>
+                        <li>Basic focus metrics</li>
+                        <li>60-day history</li>
+                        <li>Secure local data</li>
+                    </ul>
+                    <a href="signup.html" class="btn btn-primary full-width">Start free trial</a>
+                    <p class="cancel-text">Cancel anytime.</p>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="pricing-card">
+                    <div class="plan-name">Premium</div>
+                    <div class="plan-original-price" data-plan-original="premium"></div>
+                    <div class="price-wrapper">
+                        <div class="plan-price" data-plan="premium">₹299</div>
+                        <div class="plan-period">/ month</div>
+                    </div>
+                    <div class="plan-savings" data-plan-savings="premium"></div>
+                    <ul class="plan-features">
+                        <li>All Basic plan with extended features</li>
+                        <li>Advance AI analysis</li>
+                        <li>Personally made AI mock tests</li>
+                        <li>Export data options</li>
+                    </ul>
+                    <a href="signup.html" class="btn btn-primary full-width">Start free trial</a>
+                    <p class="cancel-text">Cancel anytime.</p>
+                </div>
+            </div>
+
+            <div class="plan-group-title">Host / Admin Plan</div>
+            <div class="pricing-grid single-col">
+                <!-- Professional Plan -->
+                <div class="pricing-card">
+                    <div class="plan-name">Professional</div>
+                    <div class="plan-original-price" data-plan-original="pro"></div>
+                    <div class="price-wrapper">
+                        <div class="plan-price" data-plan="pro">₹1,999</div>
+                        <div class="plan-period">/ month</div>
+                    </div>
+                    <div class="plan-savings" data-plan-savings="pro"></div>
+                    <ul class="plan-features">
+                        <li>For schools & organizers</li>
+                        <li>View student performance trends</li>
+                        <li>Manage multiple groups</li>
+                        <li>Admin dashboard access</li>
+                    </ul>
+                    <a href="signup.html" class="btn btn-primary full-width">Start free trial</a>
+                    <p class="cancel-text">Cancel anytime.</p>
+                </div>
+            </div>
+
+            <div class="trust-section">
+                <h3>A little price for a greater future.</h3>
+                <p class="trust-text">
+                    We believe in complete transparency. Growth is 100% ad-free. 
+                    Your data belongs to you and is stored securely. 
+                    If you cancel during the trial, you won't be charged. 
+                    We will send you a gentle reminder 3 days before your trial ends.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white">
+        <div class="container">
+            <div class="footer-content">
+                <p class="copyright">Copyright © 2025 Growth App. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

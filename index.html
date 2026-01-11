@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth | Track Progress, Not Pressure</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- GSAP for Apple-style scroll animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="#" class="nav-logo">Axiomora</a>
+            <div class="nav-links">
+                <a href="#problem">Challenge</a>
+                <a href="#solution">Philosophy</a>
+                <a href="#features">Features</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <a href="signin.html" class="nav-btn">Sign In</a>
+        </div>
+    </nav>
+
+    <!-- Intro Video Section -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="hero-visual">
+                <video autoplay muted loop playsinline preload="auto">
+                    <source src="assets/video/Self_Growth_Animation.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero-section cinematic-section" data-bg="var(--bg-grey)">
+        <div class="cinematic-wrapper">
+            <h2 class="cinematic-text">What if progress didn’t feel like pressure?</h2>
+        </div>
+        <div class="container section-content">
+            <div class="hero-content">
+                <h1 class="hero-headline">Track progress<br>Not pressure</h1>
+                <p class="hero-subtext">A personal growth companion designed for mental peace. <br>Focus on consistency, not competition.</p>
+                <p class="hero-credibility">Built around habits, not comparisons.</p>
+                <div class="hero-actions">
+                    <a href="#features" class="btn btn-primary">Explore App</a>
+                    <a href="signup.html" class="btn btn-link">Get Started <span class="icon">›</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="section bg-grey cinematic-section" data-bg="var(--bg-grey)">
+        <div class="cinematic-wrapper">
+            <h2 class="cinematic-text">Why does improvement feel harder<br>when you’re always compared?</h2>
+        </div>
+        <div class="container section-content">
+            <div class="section-header">
+                <h2 class="section-title">The noise of comparison.</h2>
+                <p class="section-desc">Modern education is filled with leaderboards and constant demands.<br>This pressure erodes focus and creates anxiety instead of growth.</p>
+                <p class="section-transition">Growth shouldn’t feel like pressure.</p>
+            </div>
+            <div class="grid-3">
+                <div class="info-tile fade-up">
+                    <div class="tile-icon">⚡️</div>
+                    <h3>Overwhelm</h3>
+                    <p>Constant metrics and notifications make it impossible to find a rhythm.</p>
+                </div>
+                <div class="info-tile fade-up delay-1">
+                    <div class="tile-icon">📉</div>
+                    <h3>Burnout</h3>
+                    <p>The pressure to outperform peers leads to exhaustion, not learning.</p>
+                </div>
+                <div class="info-tile fade-up delay-2">
+                    <div class="tile-icon">😶‍🌫️</div>
+                    <h3>Loss of Focus</h3>
+                    <p>External validation shifts attention away from deep, meaningful work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="section bg-white cinematic-section" data-bg="var(--bg-white)">
+        <div class="cinematic-wrapper">
+            <h2 class="cinematic-text">Clarity changes Everything</h2>
+        </div>
+        <div class="container section-content">
+            <div class="row-layout">
+                <div class="content-side fade-up">
+                    <h2 class="section-title">Find your flow.</h2>
+                    <p class="section-desc">We stripped away the leaderboards to focus on what matters: you. A calm interface that adapts to your pace, encouraging consistency over intensity.</p>
+                    <ul class="feature-list">
+                        <li>Personalized pacing</li>
+                        <li>Private by design</li>
+                        <li>Zero competition</li>
+                    </ul>
+                </div>
+                <div class="visual-side fade-up">
+                    <div class="abstract-ui-panel">
+                        <div class="panel-header">Insight & Guidance</div>
+                        <div class="widget-insight-split">
+                            <div class="insight-col left">
+                                <div class="insight-label">Current Patterns</div>
+                                <div class="insight-bar-group">
+                                    <div class="insight-bar-label">Study Consistency</div>
+                                    <div class="insight-bar"><div class="bar-fill" style="width: 60%"></div></div>
+                                    <div class="insight-bar-label">Focus Stability</div>
+                                    <div class="insight-bar"><div class="bar-fill" style="width: 45%"></div></div>
+                                </div>
+                                <div class="insight-status">Still forming</div>
+                            </div>
+                            <div class="insight-col right">
+                                <div class="insight-label">Guided Direction</div>
+                                <svg class="insight-curve-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                    <path class="insight-curve-path" d="M0,80 Q50,80 100,20" fill="none" stroke="#30D158" stroke-width="3" stroke-linecap="round"></path>
+                                </svg>
+                                <div class="insight-status optimistic">Optimized Path</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section bg-light cinematic-section" data-bg="var(--bg-light)">
+        <div class="cinematic-wrapper">
+            <h2 class="cinematic-text">App that tracks your Growth</h2>
+        </div>
+        <div class="container section-content">
+            <div class="section-header">
+                <h2 class="section-title">Designed for clarity.</h2>
+            </div>
+            <div class="clarity-grid">
+                <!-- 1. Student Growth Over 8 Weeks -->
+                <div class="clarity-card medium fade-up widget-growth-weeks">
+                    <div class="growth-header">Student Growth Over 8 Weeks</div>
+                    
+                    <div class="growth-chart-area">
+                        <svg class="growth-chart-svg" viewBox="0 0 600 200" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="growthGreenGradient" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#22C55E" />
+                                    <stop offset="100%" stop-color="rgba(34, 197, 94, 0.1)" />
+                                </linearGradient>
+                            </defs>
+                            <path class="growth-area-fill" d="M50,180 C150,160 300,120 550,40 V200 H50 Z" fill="url(#growthGreenGradient)" />
+                            <path class="growth-line-path" d="M50,180 C150,160 300,120 550,40" fill="none" stroke="#22C55E" stroke-width="3" stroke-linecap="round" />
+                            
+                            <circle class="growth-point" cx="50" cy="180" r="5" fill="#FFFFFF" stroke="#22C55E" stroke-width="2" />
+                            <text x="50" y="160" text-anchor="middle" class="growth-label">Week 1</text>
+                            
+                            <circle class="growth-point" cx="300" cy="120" r="5" fill="#FFFFFF" stroke="#22C55E" stroke-width="2" />
+                            <text x="300" y="100" text-anchor="middle" class="growth-label">Week 4</text>
+                            
+                            <circle class="growth-point" cx="550" cy="40" r="5" fill="#FFFFFF" stroke="#22C55E" stroke-width="2" />
+                            <text x="550" y="25" text-anchor="middle" class="growth-label">Week 8</text>
+                        </svg>
+                    </div>
+
+                    <div class="growth-stats-row">
+                        <div class="growth-stat-block"><div class="stat-icon">⬆</div><div class="stat-text"><span class="stat-label">Total Growth:</span><span class="stat-value">+45%</span></div></div>
+                        <div class="stat-divider"></div>
+                        <div class="growth-stat-block"><div class="stat-icon">📈</div><div class="stat-text"><span class="stat-label">Avg. Weekly Growth:</span><span class="stat-value">+6.4%</span></div></div>
+                        <div class="stat-divider"></div>
+                        <div class="growth-stat-block"><div class="stat-icon">👑</div><div class="stat-text"><span class="stat-label">Peak Week:</span><span class="stat-value">Week 8</span></div></div>
+                    </div>
+
+                    <div class="growth-footer">Growth becomes visible over weeks, not days.</div>
+                </div>
+
+                <!-- 2. Task Completion Rate (Replacing Effort Balance) -->
+                <div class="clarity-card small fade-up delay-1">
+                    <div class="task-header">Task Completion Rate</div>
+                    <div class="task-main">
+                        <div class="task-chart-block">
+                            <svg class="task-donut-svg" viewBox="0 0 120 120">
+                                <defs>
+                                    <linearGradient id="taskGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#1E3A8A" /> <!-- Deep Blue -->
+                                        <stop offset="100%" stop-color="#8B5CF6" /> <!-- Violet -->
+                                    </linearGradient>
+                                </defs>
+                                <circle cx="60" cy="60" r="50" fill="none" stroke="#E5E7EB" stroke-width="10" />
+                                <circle class="task-progress-arc" cx="60" cy="60" r="50" fill="none" stroke="url(#taskGradient)" stroke-width="10" stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="314" transform="rotate(-90 60 60)" />
+                            </svg>
+                            <div class="task-center-text">
+                                <div class="task-percent">83%</div>
+                                <div class="task-label">Completed</div>
+                            </div>
+                        </div>
+                        <div class="task-text-block">25/30 Tasks Completed</div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="task-divider"></div>
+                        <p class="task-footer-text">Regular completion leads to progress.</p>
+                    </div>
+                </div>
+
+                <!-- 3. Time Spent vs Improvement -->
+                <div class="clarity-card large fade-up">
+                    <div class="card-header">
+                        <h3>Time vs Improvement</h3>
+                        <p>More hours often lead to noticeable gains</p>
+                    </div>
+                    <div class="widget-scatter">
+                        <svg class="scatter-svg" viewBox="0 0 600 200" preserveAspectRatio="none">
+                            <!-- Dots -->
+                            <circle class="scatter-dot" cx="50" cy="150" r="4" fill="#0071E3" opacity="0.5" />
+                            <circle class="scatter-dot" cx="120" cy="130" r="4" fill="#0071E3" opacity="0.5" />
+                            <circle class="scatter-dot" cx="200" cy="100" r="4" fill="#0071E3" opacity="0.5" />
+                            <circle class="scatter-dot" cx="300" cy="80" r="4" fill="#0071E3" opacity="0.5" />
+                            <circle class="scatter-dot" cx="450" cy="50" r="4" fill="#0071E3" opacity="0.5" />
+                            <circle class="scatter-dot" cx="550" cy="30" r="4" fill="#0071E3" opacity="0.5" />
+                            <!-- Trend Line -->
+                            <path class="scatter-trend" d="M50,160 C150,140 300,100 550,30" fill="none" stroke="#0071E3" stroke-width="2" stroke-linecap="round" stroke-dasharray="600" stroke-dashoffset="600" />
+                        </svg>
+                        <div class="scatter-labels">
+                            <span>Hours Studied</span>
+                            <span>Improvement Trend</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Weekly Review -->
+                <div class="clarity-card small fade-up delay-1">
+                    <div class="card-header">
+                        <h3>Weekly Review</h3>
+                        <p>Reflection, not metrics</p>
+                    </div>
+                    <div class="widget-review">
+                        <button class="review-btn">Review This Week</button>
+                        <div class="review-checklist">
+                            <div class="check-item"><span class="check-icon">✓</span> What went well?</div>
+                            <div class="check-item"><span class="check-icon">✓</span> What could improve?</div>
+                            <div class="check-item"><span class="check-icon">✓</span> Goal for next week</div>
+                        </div>
+                        <div class="review-date">Last completed: Oct 24</div>
+                    </div>
+                </div>
+
+                <!-- 5. Weekly Hours Studied -->
+                <div class="clarity-card medium fade-up">
+                    <div class="card-header">
+                        <h3>Weekly Hours</h3>
+                        <p>See your study consistency</p>
+                    </div>
+                    <div class="widget-weekly-hours">
+                        <div class="hours-chart">
+                            <div class="hour-bar-col"><div class="hour-bar" style="height: 40%"></div><span>M</span></div>
+                            <div class="hour-bar-col"><div class="hour-bar" style="height: 60%"></div><span>T</span></div>
+                            <div class="hour-bar-col"><div class="hour-bar" style="height: 50%"></div><span>W</span></div>
+                            <div class="hour-bar-col"><div class="hour-bar" style="height: 80%"></div><span>T</span></div>
+                            <div class="hour-bar-col"><div class="hour-bar" style="height: 70%"></div><span>F</span></div>
+                            <div class="hour-bar-col"><div class="hour-bar" style="height: 30%"></div><span>S</span></div>
+                            <div class="hour-bar-col"><div class="hour-bar" style="height: 20%"></div><span>S</span></div>
+                            <div class="goal-line"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Morning Focus Check -->
+                <div class="clarity-card small fade-up delay-2">
+                    <div class="card-header">
+                        <h3>Morning Focus</h3>
+                        <p>Set intention for today</p>
+                    </div>
+                    <div class="widget-focus-check">
+                        <div class="focus-pills">
+                            <span class="focus-pill">Deep Work</span>
+                            <span class="focus-pill">Light Review</span>
+                        </div>
+                        <div class="focus-slider-track"><div class="focus-slider-thumb"></div></div>
+                        <button class="focus-log-btn">Log Focus Start</button>
+                    </div>
+                </div>
+
+                <!-- 7. Task Completion Rate -->
+                <div class="clarity-card medium fade-up delay-1">
+                    <div class="card-header">
+                        <h3>Completion Rate</h3>
+                        <p>Reliability leads to progress</p>
+                    </div>
+                    <div class="widget-completion">
+                        <div class="completion-bars">
+                            <div class="comp-bar-track"><div class="comp-bar-fill" style="width: 80%"></div></div>
+                            <div class="comp-bar-track"><div class="comp-bar-fill" style="width: 65%"></div></div>
+                            <div class="comp-bar-track"><div class="comp-bar-fill" style="width: 90%"></div></div>
+                        </div>
+                        <div class="completion-circle">
+                            <svg viewBox="0 0 60 60">
+                                <circle cx="30" cy="30" r="26" fill="none" stroke="#E5E5E7" stroke-width="4" />
+                                <circle class="comp-circle-fill" cx="30" cy="30" r="26" fill="none" stroke="#30D158" stroke-width="4" stroke-dasharray="163" stroke-dashoffset="163" transform="rotate(-90 30 30)" />
+                            </svg>
+                            <span class="comp-val">83%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Growth Summary -->
+                <div class="clarity-card small fade-up">
+                    <div class="card-header">
+                        <h3>Growth Summary</h3>
+                        <p>Weekly progress snapshot</p>
+                    </div>
+                    <div class="widget-summary">
+                        <div class="summary-segment-bar">
+                            <div class="sum-seg s1"></div>
+                            <div class="sum-seg s2"></div>
+                            <div class="sum-seg s3"></div>
+                        </div>
+                        <div class="summary-icons">
+                            <span class="sum-icon">🔥</span>
+                            <span class="sum-icon">🧠</span>
+                            <span class="sum-icon">✅</span>
+                        </div>
+                        <div class="summary-date">Updated: Just now</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="section bg-grey overflow-hidden">
+        <div class="container">
+            <div class="ui-showcase-row">
+                <div class="ui-card-float left"></div>
+                <div class="ui-card-float center"></div>
+                <div class="ui-card-float right"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works (Micro-Section) -->
+    <section class="section bg-white cinematic-section" data-bg="var(--bg-white)">
+        <div class="cinematic-wrapper">
+            <h2 class="cinematic-text">Ready to grow at your own pace?</h2>
+        </div>
+        <div class="container section-content">
+            <div class="section-header">
+                <h2 class="section-title">A calmer way to grow.</h2>
+            </div>
+            <div class="grid-3 center-text">
+                <div class="fade-up">
+                    <h3>Observe</h3>
+                    <p>Track consistency, not comparison.</p>
+                </div>
+                <div class="fade-up delay-1">
+                    <h3>Reflect</h3>
+                    <p>See patterns emerge over time.</p>
+                </div>
+                <div class="fade-up delay-2">
+                    <h3>Build</h3>
+                    <p>Encourage steady, quiet habits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section bg-grey">
+        <div class="container narrow">
+            <h2 class="section-title">Questions.</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">Is my data private?</button>
+                    <div class="faq-answer"><p>Absolutely. Your growth is personal. All data is stored locally on your device and is never sold or shared. You own your history.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How is this different from other trackers?</button>
+                    <div class="faq-answer"><p>Most trackers push you to compete. We help you reflect. No leaderboards, no public stats, no "falling behind." Just you and your own pace.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Is the app free?</button>
+                    <div class="faq-answer"><p>The app is available for free to try for 30 days. You can access all basic features without any payment. If you find it helpful and want to unlock premium features, you can choose to subscribe.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Is there any discount?</button>
+                    <div class="faq-answer"><p>No, we do not offer any discounts at this time. We believe in giving top quality to our users.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="section bg-light cinematic-section" data-bg="var(--bg-light)">
+        <div class="cinematic-wrapper">
+            <h2 class="cinematic-text">Coming Soon</h2>
+        </div>
+        <div class="container section-content">
+            <div class="cta-box">
+                <h2 class="cta-title">Start your journey.</h2>
+                <p class="cta-text">Join thousands of students finding peace in progress.</p>
+                <a href="signup.html" class="btn btn-primary">Create your account</a>
+                <p class="cta-reassurance">Free to try. No pressure to continue.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white">
+        <div class="container">
+            <div class="footer-content">
+                <p class="copyright">Copyright © 2025 Growth App. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
