@@ -13,7 +13,7 @@ cinematicSections.forEach((section, index) => {
     const bgColor = section.dataset.bg || '#FFFFFF';
 
     // Set initial states
-    gsap.set(wrapper, { backgroundColor: bgColor }); // Ensure wrapper covers content
+
     gsap.set(text, { opacity: 0, fontSize: "4rem" }); // Start small
     gsap.set(content, { opacity: 0, y: 50 });
 
@@ -30,9 +30,9 @@ cinematicSections.forEach((section, index) => {
 
     // Sequence:
     // 1. Text appears
-    tl.to(text, { opacity: 1, fontSize: "5rem", duration: 1, ease: "power2.out" })
+    tl.to(text, { opacity: 1, fontSize: "4rem", duration: 0.5, ease: "power2.out" })
       // 2. Text zooms in massively (increases font-size to fill screen)
-      .to(text, { fontSize: "250rem", duration: 3, ease: "power1.in" }, "+=0.2")
+      .to(text, { fontSize: "250rem", duration: 4, ease: "power1.in" }, "+=0.2")
       // 3. Text fades out ONLY at the very end of the zoom (when it's huge)
       .to(text, { opacity: 0, duration: 0.5, ease: "power1.out" }, "-=0.5")
       // 3. Wrapper fades out to reveal content underneath
