@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dashboard | AxioStudy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dashboard-body">
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">AxioStudy</a>
+            <div class="nav-links">
+                <a href="index.html#problem">Challenge</a>
+                <a href="index.html#solution">Philosophy</a>
+                <a href="index.html#features">Features</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="index.html#faq">FAQ</a>
+            </div>
+            <a href="signin.html" class="nav-btn">Sign In</a>
+        </div>
+    </nav>
+
+    <main class="dashboard-shell">
+        <section class="dashboard-hero">
+            <div>
+                <p class="dashboard-kicker">Personal Dashboard</p>
+                <h1 class="dashboard-title">Progress that feels calm, clear, and measurable.</h1>
+                <p class="dashboard-subtitle">Track performance, focus time, and learning momentum in one place without changing the rest of your workflow.</p>
+            </div>
+            <div class="dashboard-hero-panel">
+                <div class="hero-panel-header">
+                    <span class="hero-panel-label">Today</span>
+                    <span class="hero-panel-badge">In rhythm</span>
+                </div>
+                <div class="hero-panel-metrics">
+                    <div>
+                        <strong>84</strong>
+                        <span>Productivity score</span>
+                    </div>
+                    <div>
+                        <strong>3h 45m</strong>
+                        <span>Focus logged</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-grid" aria-label="Statistics cards">
+            <article class="dashboard-card stat-card">
+                <div class="stat-icon">P</div>
+                <div class="stat-copy">
+                    <span>Productivity Score</span>
+                    <strong>84</strong>
+                </div>
+                <em>+6%</em>
+            </article>
+            <article class="dashboard-card stat-card">
+                <div class="stat-icon">G</div>
+                <div class="stat-copy">
+                    <span>Goals Completed</span>
+                    <strong>12</strong>
+                </div>
+                <em>4 today</em>
+            </article>
+            <article class="dashboard-card stat-card">
+                <div class="stat-icon">F</div>
+                <div class="stat-copy">
+                    <span>Focus Time</span>
+                    <strong>18.5h</strong>
+                </div>
+                <em>This week</em>
+            </article>
+            <article class="dashboard-card stat-card">
+                <div class="stat-icon">W</div>
+                <div class="stat-copy">
+                    <span>Weekly Performance</span>
+                    <strong>91%</strong>
+                </div>
+                <em>Above plan</em>
+            </article>
+            <article class="dashboard-card stat-card">
+                <div class="stat-icon">T</div>
+                <div class="stat-copy">
+                    <span>Weak Topics Studied</span>
+                    <strong>7</strong>
+                </div>
+                <em>+2 this week</em>
+            </article>
+        </section>
+
+        <section class="dashboard-card insight-card">
+            <div class="section-heading">
+                <div>
+                    <p class="section-label">AI Insight</p>
+                    <h2>Guidance based on your current study rhythm</h2>
+                </div>
+                <span class="insight-chip">Adaptive pattern</span>
+            </div>
+            <div class="insight-grid">
+                <div class="insight-main">
+                    <p>Your productivity drops after <strong>8PM</strong>. Best focus window: <strong>10AM-1PM</strong>. Suggested improvement: <strong>review weak topics earlier in the day</strong>.</p>
+                </div>
+                <ul class="insight-list">
+                    <li>Schedule revision before your evening slowdown.</li>
+                    <li>Reserve deep work blocks for late morning.</li>
+                    <li>Protect your streak with a shorter backup session after dinner.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="dashboard-card chart-card">
+            <div class="section-heading">
+                <div>
+                    <p class="section-label">Analytics</p>
+                    <h2>Productivity Trend</h2>
+                </div>
+                <div class="chart-switcher" role="tablist" aria-label="Chart types">
+                    <button class="chart-toggle active" data-chart-type="line" type="button">Line</button>
+                    <button class="chart-toggle" data-chart-type="bar" type="button">Bar</button>
+                    <button class="chart-toggle" data-chart-type="pie" type="button">Pie</button>
+                </div>
+            </div>
+            <div class="chart-meta">
+                <span>7-day learning intensity</span>
+                <span>Updated every study session</span>
+            </div>
+            <div class="chart-wrap">
+                <canvas id="productivityChart" aria-label="Productivity trend chart"></canvas>
+            </div>
+        </section>
+
+        <section class="dashboard-split">
+            <article class="dashboard-card task-card">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label">Habits and Goals</p>
+                        <h2>Daily, weekly, and long-term progress</h2>
+                    </div>
+                    <div class="task-summary">
+                        <strong id="taskProgressValue">0%</strong>
+                        <span>Completed</span>
+                    </div>
+                </div>
+                <div class="task-progress-bar">
+                    <span id="taskProgressBar"></span>
+                </div>
+                <div class="task-groups" id="taskGroups"></div>
+            </article>
+
+            <article class="dashboard-card calendar-card">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label">Calendar</p>
+                        <h2>Sessions, deadlines, and streaks</h2>
+                    </div>
+                    <div class="calendar-legend">
+                        <span><i class="dot dot-deadline"></i>Deadline</span>
+                        <span><i class="dot dot-focus"></i>Focus</span>
+                        <span><i class="dot dot-study"></i>Study</span>
+                    </div>
+                </div>
+                <div class="calendar-header">
+                    <button class="calendar-nav" id="prevMonth" type="button" aria-label="Previous month">‹</button>
+                    <h3 id="calendarMonthLabel">March 2026</h3>
+                    <button class="calendar-nav" id="nextMonth" type="button" aria-label="Next month">›</button>
+                </div>
+                <div class="calendar-grid calendar-weekdays">
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                    <span>Sun</span>
+                </div>
+                <div class="calendar-grid" id="calendarGrid"></div>
+                <div class="calendar-events" id="calendarEvents"></div>
+            </article>
+        </section>
+
+        <section class="dashboard-split dashboard-bottom">
+            <article class="dashboard-card leaderboard-card">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label">Personal Leaderboard</p>
+                        <h2>Ranking against your own history</h2>
+                    </div>
+                </div>
+                <div class="leaderboard-stack">
+                    <div class="leaderboard-row">
+                        <span>Today's rank</span>
+                        <strong>#2</strong>
+                        <em>Up from yesterday</em>
+                    </div>
+                    <div class="leaderboard-row">
+                        <span>Yesterday's rank</span>
+                        <strong>#4</strong>
+                        <em>Recovery day</em>
+                    </div>
+                    <div class="leaderboard-row">
+                        <span>Best rank achieved</span>
+                        <strong>#1</strong>
+                        <em>Held for 6 sessions</em>
+                    </div>
+                </div>
+            </article>
+
+            <article class="dashboard-card activity-card">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label">Activity History</p>
+                        <h2>Recent progress log</h2>
+                    </div>
+                </div>
+                <div class="activity-feed">
+                    <div class="activity-item">
+                        <span class="activity-line"></span>
+                        <div>
+                            <strong>Goal completed</strong>
+                            <p>Finished the weekly algebra revision block.</p>
+                            <time>09:15 AM</time>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-line"></span>
+                        <div>
+                            <strong>Weak topic studied</strong>
+                            <p>Reviewed electrochemistry notes for 40 minutes.</p>
+                            <time>Yesterday</time>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-line"></span>
+                        <div>
+                            <strong>Focus session finished</strong>
+                            <p>Completed a 90-minute deep work session with no interruptions.</p>
+                            <time>Yesterday</time>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-line"></span>
+                        <div>
+                            <strong>Weekly progress report</strong>
+                            <p>Performance improved 11% week over week with better morning consistency.</p>
+                            <time>Sunday</time>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

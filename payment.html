@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Payment Method | AxioStudy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">AxioStudy</a>
+            <div class="nav-links">
+                <a href="index.html#problem">Challenge</a>
+                <a href="index.html#solution">Philosophy</a>
+                <a href="index.html#features">Features</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="index.html#faq">FAQ</a>
+            </div>
+            <a href="signin.html" class="nav-btn">Sign In</a>
+        </div>
+    </nav>
+
+    <main class="payment-page">
+        <section class="payment-shell">
+            <div class="payment-header">
+                <span class="payment-kicker">Secure Checkout</span>
+                <h1>Choose how you want to pay.</h1>
+                <p>Select your preferred payment method to finish creating your account.</p>
+            </div>
+
+            <div class="payment-layout">
+                <div class="payment-panel">
+                    <div class="payment-section">
+                        <div class="payment-section-head">
+                            <h2>Cards</h2>
+                            <span>Fastest for recurring billing</span>
+                        </div>
+
+                        <div class="payment-options-grid">
+                            <label class="payment-option-card" data-card-option="debit">
+                                <input type="radio" name="paymentMethod" value="debit" checked>
+                                <div class="payment-option-top">
+                                    <span class="payment-option-title">Debit Card</span>
+                                    <span class="payment-chip">Visa, RuPay, Maestro</span>
+                                </div>
+                                <p>Use your bank-issued debit card for direct payment.</p>
+                            </label>
+
+                            <label class="payment-option-card" data-card-option="credit">
+                                <input type="radio" name="paymentMethod" value="credit">
+                                <div class="payment-option-top">
+                                    <span class="payment-option-title">Credit Card</span>
+                                    <span class="payment-chip">Visa, Mastercard, Amex</span>
+                                </div>
+                                <p>Pay with your credit card and manage billing later.</p>
+                            </label>
+                        </div>
+
+                        <div class="payment-card-form" data-card-panel="debit">
+                            <div class="payment-card-form-header">
+                                <strong>Debit Card Details</strong>
+                                <span>Visible because Debit Card is selected</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Cardholder Name</label>
+                                <input type="text" class="form-input" placeholder="Jane Doe">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Debit Card Number</label>
+                                <input type="text" class="form-input" placeholder="1234 5678 9012 3456">
+                            </div>
+                            <div class="payment-inline-fields">
+                                <div class="form-group">
+                                    <label class="form-label">Expiry Date</label>
+                                    <input type="text" class="form-input" placeholder="MM/YY">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">CVV</label>
+                                    <input type="password" class="form-input" placeholder="123">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="payment-card-form" data-card-panel="credit" hidden>
+                            <div class="payment-card-form-header">
+                                <strong>Credit Card Details</strong>
+                                <span>Visible because Credit Card is selected</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Cardholder Name</label>
+                                <input type="text" class="form-input" placeholder="Jane Doe">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Credit Card Number</label>
+                                <input type="text" class="form-input" placeholder="1234 5678 9012 3456">
+                            </div>
+                            <div class="payment-inline-fields">
+                                <div class="form-group">
+                                    <label class="form-label">Expiry Date</label>
+                                    <input type="text" class="form-input" placeholder="MM/YY">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">CVV</label>
+                                    <input type="password" class="form-input" placeholder="123">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Billing ZIP / Postal Code</label>
+                                <input type="text" class="form-input" placeholder="400001">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-section">
+                        <div class="payment-section-head">
+                            <h2>Wallets and Online</h2>
+                            <span>Popular digital payment choices</span>
+                        </div>
+
+                        <div class="payment-options-stack">
+                            <label class="payment-row-option">
+                                <input type="radio" name="paymentMethod" value="paypal">
+                                <div>
+                                    <span class="payment-option-title">PayPal</span>
+                                    <p>Use your PayPal balance, bank, or linked card.</p>
+                                </div>
+                                <strong>PayPal</strong>
+                            </label>
+
+                            <label class="payment-row-option">
+                                <input type="radio" name="paymentMethod" value="razorpay">
+                                <div>
+                                    <span class="payment-option-title">Razorpay</span>
+                                    <p>Pay through Razorpay with multiple secure checkout options.</p>
+                                </div>
+                                <strong>Razorpay</strong>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="payment-section">
+                        <div class="payment-section-head">
+                            <h2>UPI</h2>
+                            <span>Scan, approve, and continue instantly</span>
+                        </div>
+
+                        <div class="upi-grid">
+                            <label class="upi-card">
+                                <input type="radio" name="paymentMethod" value="gpay">
+                                <span class="upi-name">Google Pay</span>
+                            </label>
+                            <label class="upi-card">
+                                <input type="radio" name="paymentMethod" value="paytm">
+                                <span class="upi-name">Paytm</span>
+                            </label>
+                            <label class="upi-card">
+                                <input type="radio" name="paymentMethod" value="phonepe">
+                                <span class="upi-name">PhonePe</span>
+                            </label>
+                            <label class="upi-card">
+                                <input type="radio" name="paymentMethod" value="upi">
+                                <span class="upi-name">Other UPI ID</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">UPI ID</label>
+                            <input type="text" class="form-input" placeholder="jane@okhdfcbank">
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="payment-summary-card">
+                    <div class="payment-summary-top">
+                        <span class="payment-summary-label">Plan Summary</span>
+                        <h2 id="paymentPlanName">AxioStudy Basic</h2>
+                        <p id="paymentPlanDescription">Personal growth tracking and calm daily progress tools for individual learners.</p>
+                    </div>
+
+                    <div class="payment-summary-price">
+                        <strong id="paymentPlanPrice">₹199</strong>
+                        <span id="paymentPlanPeriod">/ month</span>
+                    </div>
+
+                    <div class="payment-summary-list">
+                        <div>
+                            <span>Subscription</span>
+                            <strong id="paymentSubscriptionValue">₹199</strong>
+                        </div>
+                        <div>
+                            <span>Selected Plan</span>
+                            <strong id="paymentSelectedTier">Basic</strong>
+                        </div>
+                        <div>
+                            <span>Tax</span>
+                            <strong>Calculated at checkout</strong>
+                        </div>
+                    </div>
+
+                    <div class="payment-secure-note">
+                        <strong>256-bit encryption</strong>
+                        <p>Your payment details are secured and never stored in plain text.</p>
+                    </div>
+
+                    <button type="button" class="btn-primary payment-submit">Pay Securely</button>
+                    <p class="payment-footer-note">By continuing, you agree to the billing terms and recurring renewal policy.</p>
+                </aside>
+            </div>
+        </section>
+    </main>
+    <script src="payment.js"></script>
+</body>
+</html>
