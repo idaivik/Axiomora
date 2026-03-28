@@ -13,7 +13,7 @@
 
     <nav class="nav-bar">
         <div class="nav-content">
-            <a href="index.html" class="nav-logo">Axiomora</a>
+            <a href="index.html" class="nav-logo">AxioStudy</a>
             <div class="nav-links">
                 <a href="index.html#problem">Challenge</a>
                 <a href="index.html#solution">Philosophy</a>
@@ -34,7 +34,7 @@
 
             <div class="auth-options">
                 <button class="btn-social">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" width="18" alt="G"> Google
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/330px-Google_%22G%22_logo.svg.png" width="18" alt="G"> Google
                 </button>
                 <button class="btn-social">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" width="18" alt="A"> Apple
@@ -54,19 +54,26 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-input" required placeholder="••••••••">
+                    <div class="password-field">
+                        <input type="password" class="form-input password-input" id="signupPassword" required placeholder="••••••••">
+                        <button type="button" class="password-toggle" aria-label="Show password" aria-pressed="false">Show</button>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Confirm Password</label>
-                    <input type="password" class="form-input" required placeholder="••••••••">
+                    <div class="password-field">
+                        <input type="password" class="form-input password-input" id="signupConfirmPassword" required placeholder="••••••••" aria-describedby="passwordMatchError">
+                        <button type="button" class="password-toggle" aria-label="Show password" aria-pressed="false">Show</button>
+                    </div>
+                    <p class="form-error" id="passwordMatchError" hidden>Password doesn't match try again</p>
                 </div>
 
-                <button type="submit" class="btn-primary">Create Account</button>
+                <button type="submit" class="btn-primary">Continue &#8594</button>
                 <p style="text-align:center; font-size:0.8rem; color:#86868b; margin-top:15px;">
                     By signing up, you agree to our Terms & Privacy Policy.
                 </p>
                 <p style="text-align:center; font-size:0.9rem; color:#86868b; margin-top:20px;">
-                    Already have an account? <a href="signin.html" style="color:#0071E3; text-decoration:none; font-weight:500;">Log in</a>
+                    Already have an account? <a href="signin.html" style="color:#0071E3; text-decoration:none; font-weight:500;">Sign in</a>
                 </p>
             </form>
         </div>
