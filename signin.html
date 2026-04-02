@@ -32,15 +32,16 @@
             <form class="auth-form">
                 <div class="form-group">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-input" placeholder="name@example.com">
+                    <input type="email" class="form-input" id="signinEmail" placeholder="name@example.com" required>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Password</label>
                     <div class="password-field">
-                        <input type="password" class="form-input password-input" placeholder="••••••••">
+                        <input type="password" class="form-input password-input" id="signinPassword" placeholder="••••••••" required>
                         <button type="button" class="password-toggle" aria-label="Show password" aria-pressed="false">Show</button>
                     </div>
                 </div>
+                <p class="form-error" id="signinStatusMessage" hidden></p>
                 <button type="submit" class="btn btn-primary auth-button">Sign In</button>
             </form>
             <p class="auth-footer-text">
@@ -49,6 +50,9 @@
         </div>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-client.js"></script>
     <script src="script.js"></script>
+    <script src="signin.js"></script>
 </body>
 </html>

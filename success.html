@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Plan Activated | Axiomora</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">AxioStudy</a>
+            <div class="nav-links">
+                <a href="index.html#problem">Challenge</a>
+                <a href="index.html#solution">Philosophy</a>
+                <a href="index.html#features">Features</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="index.html#faq">FAQ</a>
+            </div>
+            <a href="signin.html" class="nav-btn">Sign In</a>
+        </div>
+    </nav>
+
+    <main class="payment-page">
+        <section class="payment-shell">
+            <div class="payment-header">
+                <span class="payment-kicker">Subscription Active</span>
+                <h1>Your plan is now active.</h1>
+                <p>You may now close this website and open the Axiomora app.</p>
+                <p id="successEmail"></p>
+                <a href="signin.html" class="btn btn-primary">Login to a different account</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const email = params.get('email') || '';
+        const emailTarget = document.querySelector('#successEmail');
+
+        if (emailTarget && email) {
+            emailTarget.textContent = email;
+        }
+    </script>
+</body>
+</html>

@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-    --dashboard-bg: linear-gradient(180deg, #f5f7fb 0%, #eef2f8 100%);
+    --dashboard-bg: linear-gradient(180deg, #fbf5f7 0%, #fbf5f7 100%);
     --dashboard-surface: rgba(255, 255, 255, 0.88);
     --dashboard-border: rgba(15, 23, 42, 0.08);
     --dashboard-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
-    --dashboard-blue: #0071e3;
+    --dashboard-pink: #e30044;
     --dashboard-blue-soft: rgba(0, 113, 227, 0.12);
     --dashboard-text: #111827;
     --dashboard-muted: #6b7280;

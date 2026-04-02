@@ -3,7 +3,7 @@
 /* APPLE DESIGN SYSTEM - LIGHT THEME */
 :root {
     --bg-white: #ffebeb;
-    --bg-light: #fbd2d4;
+    --bg-light: #f9e1e2;
     --bg-slider: #060606dc;
     --text-primary: #1D1D1F;
     --text-secondary: #6E6E73;
@@ -1305,6 +1305,9 @@ footer { padding: 160px 0 60px; border-top: 1px solid rgba(0,0,0,0.05); }
     border-radius: 22px;
     background: rgba(250, 242, 243, 0.7);
     border: 1px solid rgba(29, 29, 31, 0.06);
+}
+.payment-card-form-header{
+    font-size: 20px;
 }
 .payment-inline-fields {
     display: grid;
