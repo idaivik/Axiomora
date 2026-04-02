@@ -1,3 +1,6 @@
+const SUPABASE_URL = 'https://nxtfbyvacunsiytlsfkl.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54dGZieXZhY3Vuc2l5dGxzZmtsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0ODUwNzgsImV4cCI6MjA4OTA2MTA3OH0.DojA5driPSrZYoOsGJTM_hcvL_EX0uxIYxuLiHuhYU8';
+
 const paymentPlanConfig = {
     basic: {
         label: 'Basic',
@@ -27,16 +30,97 @@ const paymentPricingData = {
     }
 };
 
-function initPaymentSummary() {
-    const params = new URLSearchParams(window.location.search);
-    const plan = params.get('plan') || 'basic';
-    const currency = params.get('currency') || 'inr';
-    const period = params.get('period') || 'monthly';
+let paymentContext = {
+    plan: 'basic',
+    currency: 'inr',
+    period: 'monthly',
+    amount: 199,
+    email: ''
+};
 
+function createSupabaseClient() {
+    if (!window.supabase?.createClient) {
+        setStatusMessage('Supabase SDK is not loaded on this page.');
+        return null;
+    }
+
+    if (
+        !SUPABASE_URL ||
+        !SUPABASE_ANON_KEY ||
+        SUPABASE_URL.includes('https://nxtfbyvacunsiytlsfkl.supabase.co') ||
+        SUPABASE_ANON_KEY.includes('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54dGZieXZhY3Vuc2l5dGxzZmtsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0ODUwNzgsImV4cCI6MjA4OTA2MTA3OH0.DojA5driPSrZYoOsGJTM_hcvL_EX0uxIYxuLiHuhYU8')
+    ) {
+        setStatusMessage('Add your real Supabase URL and public key before using the simulated checkout.');
+        return null;
+    }
+
+    return window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+}
+
+function getCheckoutParams() {
+    const params = new URLSearchParams(window.location.search);
+
+    return {
+        plan: params.get('plan') || 'basic',
+        currency: (params.get('currency') || 'inr').toLowerCase(),
+        period: (params.get('period') || 'monthly').toLowerCase()
+    };
+}
+
+function getPlanPrice(currency, period, plan) {
+    const selectedCurrency = paymentPricingData[currency] || paymentPricingData.inr;
+    const selectedPeriod = selectedCurrency[period] || selectedCurrency.monthly;
+    return selectedPeriod[plan] || paymentPricingData.inr.monthly.basic;
+}
+
+function parseAmount(priceText) {
+    return Number(String(priceText).replace(/,/g, '').replace(/[^\d.]/g, '')) || 0;
+}
+
+function getSubscriptionEndDate(period) {
+    const endDate = new Date();
+
+    if (period === 'yearly') {
+        endDate.setFullYear(endDate.getFullYear() + 1);
+    } else {
+        endDate.setMonth(endDate.getMonth() + 1);
+    }
+
+    return endDate.toISOString();
+}
+
+function setStatusMessage(message) {
+    const statusMessage = document.querySelector('#paymentStatusMessage');
+
+    if (!statusMessage) {
+        return;
+    }
+
+    statusMessage.textContent = message;
+    statusMessage.hidden = !message;
+}
+
+function setActionButtonsLoading(isLoading) {
+    const actionButtons = document.querySelectorAll('[data-simulated-action]');
+
+    actionButtons.forEach((button) => {
+        button.disabled = isLoading;
+    });
+}
+
+function initPaymentSummary() {
+    const { plan, currency, period } = getCheckoutParams();
     const selectedPlan = paymentPlanConfig[plan] || paymentPlanConfig.basic;
-    const selectedPriceGroup = paymentPricingData[currency] || paymentPricingData.inr;
-    const selectedPrice = selectedPriceGroup[period]?.[plan] || paymentPricingData.inr.monthly.basic;
+    const selectedPrice = getPlanPrice(currency, period, plan);
     const selectedPeriod = period === 'yearly' ? '/ year' : '/ month';
+
+    paymentContext = {
+        plan,
+        currency,
+        period,
+        amount: parseAmount(selectedPrice),
+        email: ''
+    };
 
     const planName = document.querySelector('#paymentPlanName');
     const planDescription = document.querySelector('#paymentPlanDescription');
@@ -84,5 +168,176 @@ function initCardSelection() {
     syncCardSelection();
 }
 
+function initSimulationUi() {
+    const paymentButton = document.querySelector('.payment-submit');
+    const paymentFooterNote = document.querySelector('.payment-footer-note');
+
+    if (!paymentButton || !paymentFooterNote) {
+        return;
+    }
+
+    const simulationBlock = document.createElement('div');
+    simulationBlock.innerHTML = `
+        <div class="payment-section" aria-live="polite">
+            <div class="payment-section-head">
+                <h2>Temporary Payment Simulation</h2>
+                <span>Use this until Razorpay is connected</span>
+            </div>
+            <button type="button" class="btn-primary payment-submit" data-simulated-action="success">Temporary Skip Payment</button>
+            <button type="button" class="btn-primary payment-submit" data-simulated-action="failed" style="margin-top: 12px; background: #1D1D1F;">Payment Failed</button>
+            <p id="paymentStatusMessage" class="form-error" hidden></p>
+        </div>
+    `;
+
+    paymentButton.replaceWith(simulationBlock);
+}
+
+async function recordSuccessfulPayment() {
+    const client = createSupabaseClient();
+
+    if (!client) {
+        return;
+    }
+
+    setStatusMessage('');
+    setActionButtonsLoading(true);
+
+    try {
+        const { data: authData, error: authError } = await client.auth.getUser();
+
+        if (authError) {
+            throw authError;
+        }
+
+        const user = authData?.user;
+
+        if (!user) {
+            throw new Error('Supabase is connected, but no logged-in user was found. Sign in with Supabase Auth before activating a plan.');
+        }
+
+        paymentContext.email = user.email || '';
+
+        const nowIso = new Date().toISOString();
+        const paymentPayload = {
+            user_id: user.id,
+            status: 'captured',
+            amount: paymentContext.amount,
+            currency: 'INR',
+            plan_id: paymentContext.plan,
+            billing_cycle: paymentContext.period,
+            paid_at: nowIso
+        };
+
+        const { error: paymentError } = await client
+            .from('payment_history')
+            .insert(paymentPayload);
+
+        if (paymentError) {
+            throw paymentError;
+        }
+
+        const subscriptionPayload = {
+            user_id: user.id,
+            plan_id: paymentContext.plan,
+            status: 'active',
+            billing_cycle: paymentContext.period,
+            start_date: nowIso,
+            end_date: getSubscriptionEndDate(paymentContext.period),
+            updated_at: nowIso
+        };
+
+        const { data: existingSubscription, error: subscriptionLookupError } = await client
+            .from('subscriptions')
+            .select('id')
+            .eq('user_id', user.id)
+            .maybeSingle();
+
+        if (subscriptionLookupError) {
+            throw subscriptionLookupError;
+        }
+
+        const subscriptionQuery = client.from('subscriptions');
+        const subscriptionResult = existingSubscription?.id
+            ? await subscriptionQuery.update(subscriptionPayload).eq('id', existingSubscription.id)
+            : await subscriptionQuery.insert(subscriptionPayload);
+
+        if (subscriptionResult.error) {
+            throw subscriptionResult.error;
+        }
+
+        const redirectParams = new URLSearchParams({
+            email: paymentContext.email
+        });
+
+        window.location.href = `success.html?${redirectParams.toString()}`;
+    } catch (error) {
+        setStatusMessage(error.message || 'Unable to complete the simulated payment right now.');
+    } finally {
+        setActionButtonsLoading(false);
+    }
+}
+
+async function recordFailedPayment() {
+    const client = createSupabaseClient();
+
+    if (!client) {
+        return;
+    }
+
+    setStatusMessage('');
+    setActionButtonsLoading(true);
+
+    try {
+        const { data: authData, error: authError } = await client.auth.getUser();
+
+        if (authError) {
+            throw authError;
+        }
+
+        const user = authData?.user;
+
+        if (!user) {
+            throw new Error('Sign in with Supabase Auth before recording a payment result.');
+        }
+
+        const { error } = await client
+            .from('payment_history')
+            .insert({
+                user_id: user.id,
+                status: 'failed',
+                amount: paymentContext.amount,
+                currency: 'INR',
+                plan_id: paymentContext.plan,
+                billing_cycle: paymentContext.period,
+                failure_reason: 'User simulated failure',
+                paid_at: new Date().toISOString()
+            });
+
+        if (error) {
+            throw error;
+        }
+
+        setStatusMessage('Payment failed: User simulated failure.');
+    } catch (error) {
+        setStatusMessage(error.message || 'Unable to record the failed payment.');
+    } finally {
+        setActionButtonsLoading(false);
+    }
+}
+
+function initSimulationActions() {
+    const successButton = document.querySelector('[data-simulated-action="success"]');
+    const failedButton = document.querySelector('[data-simulated-action="failed"]');
+
+    if (!successButton || !failedButton) {
+        return;
+    }
+
+    successButton.addEventListener('click', recordSuccessfulPayment);
+    failedButton.addEventListener('click', recordFailedPayment);
+}
+
 initPaymentSummary();
 initCardSelection();
+initSimulationUi();
+initSimulationActions();

@@ -34,7 +34,6 @@
                     <div class="payment-section">
                         <div class="payment-section-head">
                             <h2>Cards</h2>
-                            <span>Fastest for recurring billing</span>
                         </div>
 
                         <div class="payment-options-grid">
@@ -44,7 +43,6 @@
                                     <span class="payment-option-title">Debit Card</span>
                                     <span class="payment-chip">Visa, RuPay, Maestro</span>
                                 </div>
-                                <p>Use your bank-issued debit card for direct payment.</p>
                             </label>
 
                             <label class="payment-option-card" data-card-option="credit">
@@ -60,16 +58,15 @@
                         <div class="payment-card-form" data-card-panel="debit">
                             <div class="payment-card-form-header">
                                 <strong>Debit Card Details</strong>
-                                <span>Visible because Debit Card is selected</span>
-                            </div>
+                            </div><br>
                             <div class="form-group">
                                 <label class="form-label">Cardholder Name</label>
                                 <input type="text" class="form-input" placeholder="Jane Doe">
-                            </div>
+                            </div><br>
                             <div class="form-group">
                                 <label class="form-label">Debit Card Number</label>
                                 <input type="text" class="form-input" placeholder="1234 5678 9012 3456">
-                            </div>
+                            </div><br>
                             <div class="payment-inline-fields">
                                 <div class="form-group">
                                     <label class="form-label">Expiry Date</label>
@@ -85,16 +82,15 @@
                         <div class="payment-card-form" data-card-panel="credit" hidden>
                             <div class="payment-card-form-header">
                                 <strong>Credit Card Details</strong>
-                                <span>Visible because Credit Card is selected</span>
-                            </div>
+                            </div><br>
                             <div class="form-group">
                                 <label class="form-label">Cardholder Name</label>
                                 <input type="text" class="form-input" placeholder="Jane Doe">
-                            </div>
+                            </div><br>
                             <div class="form-group">
                                 <label class="form-label">Credit Card Number</label>
                                 <input type="text" class="form-input" placeholder="1234 5678 9012 3456">
-                            </div>
+                            </div><br>
                             <div class="payment-inline-fields">
                                 <div class="form-group">
                                     <label class="form-label">Expiry Date</label>
@@ -104,7 +100,7 @@
                                     <label class="form-label">CVV</label>
                                     <input type="password" class="form-input" placeholder="123">
                                 </div>
-                            </div>
+                            </div><br>
                             <div class="form-group">
                                 <label class="form-label">Billing ZIP / Postal Code</label>
                                 <input type="text" class="form-input" placeholder="400001">
@@ -209,6 +205,7 @@
             </div>
         </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="payment.js"></script>
 </body>
 </html>

@@ -43,13 +43,25 @@ function setPasswordMismatchError(shouldShow) {
     }
 }
 
-function handleSignup(e) {
+function getSignupClient() {
+    if (!window.supabaseClient?.auth) {
+        throw new Error('Supabase is not initialized. Check that the SDK and `supabase-client.js` are loading correctly.');
+    }
+
+    return window.supabaseClient;
+}
+
+async function handleSignup(e) {
     e.preventDefault();
 
-    const passwordInput = e.target.querySelector('#signupPassword');
-    const confirmPasswordInput = e.target.querySelector('#signupConfirmPassword');
+    const form = e.target;
+    const fullNameInput = form.querySelector('#signupFullName');
+    const emailInput = form.querySelector('#signupEmail');
+    const passwordInput = form.querySelector('#signupPassword');
+    const confirmPasswordInput = form.querySelector('#signupConfirmPassword');
+    const statusMessage = form.querySelector('#signupStatusMessage');
 
-    if (!passwordInput || !confirmPasswordInput) {
+    if (!fullNameInput || !emailInput || !passwordInput || !confirmPasswordInput) {
         return;
     }
 
@@ -60,15 +72,51 @@ function handleSignup(e) {
 
     setPasswordMismatchError(false);
 
-    const btn = e.target.querySelector('button[type="submit"]');
+    if (statusMessage) {
+        statusMessage.hidden = true;
+        statusMessage.textContent = '';
+    }
+
+    const btn = form.querySelector('button[type="submit"]');
+
+    if (!btn) {
+        return;
+    }
+
     const originalText = btn.innerText;
-    
+
     btn.disabled = true;
-    btn.innerText = 'Continuing...';
-    
-    setTimeout(() => {
+    btn.innerText = 'Creating account...';
+
+    try {
+        const client = getSignupClient();
+        const { data, error } = await client.auth.signUp({
+            email: emailInput.value.trim(),
+            password: passwordInput.value,
+            options: {
+                data: {
+                    full_name: fullNameInput.value.trim()
+                }
+            }
+        });
+
+        if (error) {
+            throw error;
+        }
+
+        if (data.session) {
+            window.location.href = 'pricing.html';
+            return;
+        }
+
+        window.location.href = 'signin.html';
+    } catch (error) {
+        if (statusMessage) {
+            statusMessage.textContent = error.message || 'Unable to create your account right now.';
+            statusMessage.hidden = false;
+        }
+    } finally {
         btn.innerText = originalText;
         btn.disabled = false;
-        window.location.href = 'pricing.html';
-    }, 1500);
+    }
 }
