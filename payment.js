@@ -47,8 +47,9 @@ function createSupabaseClient() {
     if (
         !SUPABASE_URL ||
         !SUPABASE_ANON_KEY ||
-        SUPABASE_URL.includes('https://nxtfbyvacunsiytlsfkl.supabase.co') ||
-        SUPABASE_ANON_KEY.includes('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54dGZieXZhY3Vuc2l5dGxzZmtsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0ODUwNzgsImV4cCI6MjA4OTA2MTA3OH0.DojA5driPSrZYoOsGJTM_hcvL_EX0uxIYxuLiHuhYU8')
+        SUPABASE_URL.includes('your-project') ||
+        SUPABASE_URL.includes('your-supabase-url') ||
+        SUPABASE_ANON_KEY.includes('your-anon-key')
     ) {
         setStatusMessage('Add your real Supabase URL and public key before using the simulated checkout.');
         return null;

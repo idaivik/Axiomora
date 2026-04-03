@@ -21,10 +21,8 @@ function initPasswordToggles() {
 
 initPasswordToggles();
 
-if (typeof gsap !== 'undefined') {
-    if (typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
-    }
+if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
 
     // CINEMATIC SCROLL SCRIPT
     // Handles the 7-section narrative flow: Text Zoom -> Content Reveal
@@ -203,10 +201,12 @@ if (typeof gsap !== 'undefined') {
     });
 
     // 4. Weekly Review
-    gsap.to(".check-item", {
+    gsap.from(".check-item", {
         scrollTrigger: { trigger: ".widget-review", start: "top 85%" },
-        opacity: 1,
-        x: 0,
+        opacity: 0,
+        x: -10,
+        clearProps: "opacity,transform",
+        immediateRender: false,
         duration: 0.5,
         stagger: 0.3,
         ease: "power2.out"
@@ -220,17 +220,22 @@ if (typeof gsap !== 'undefined') {
         stagger: 0.1,
         ease: "power2.out"
     });
-    gsap.to(".goal-line", {
+    gsap.from(".goal-line", {
         scrollTrigger: { trigger: ".widget-weekly-hours", start: "top 85%" },
-        opacity: 1,
+        opacity: 0,
+        clearProps: "opacity",
+        immediateRender: false,
         duration: 1,
         delay: 0.8
     });
 
     // 6. Morning Focus
-    gsap.to(".focus-pill", {
+    gsap.from(".focus-pill", {
         scrollTrigger: { trigger: ".widget-focus-check", start: "top 85%" },
-        opacity: 1,
+        opacity: 0,
+        y: 8,
+        clearProps: "opacity,transform",
+        immediateRender: false,
         duration: 0.5,
         stagger: 0.2
     });
