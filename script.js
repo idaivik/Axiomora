@@ -35,12 +35,19 @@ if (typeof gsap !== 'undefined') {
         const wrapper = section.querySelector('.cinematic-wrapper');
         const text = section.querySelector('.cinematic-text');
         const content = section.querySelector('.section-content');
-        const bgColor = section.dataset.bg || '#FFFFFF';
+        const heroVideo = section.querySelector('.hero-media video');
+        const heroTint = section.querySelector('.hero-media-tint');
 
         // Set initial states
 
         gsap.set(text, { opacity: 0, fontSize: "4rem" }); // Start small
         gsap.set(content, { opacity: 0, y: 50 });
+        if (heroVideo) {
+            gsap.set(heroVideo, { filter: "blur(0px)", scale: 1 });
+        }
+        if (heroTint) {
+            gsap.set(heroTint, { opacity: 0 });
+        }
 
         const tl = gsap.timeline({
             scrollTrigger: {
@@ -55,15 +62,27 @@ if (typeof gsap !== 'undefined') {
 
         // Sequence:
         // 1. Text appears
-        tl.to(text, { opacity: 1, fontSize: "4rem", duration: 0.5, ease: "power2.out" })
+        tl.to(text, { opacity: 1, fontSize: "4rem", duration: 0.5, ease: "power2.out" });
+
+        if (heroVideo) {
+            tl.to(heroVideo, { filter: "blur(10px)", scale: 1.02, duration: 0.45, ease: "power1.out" });
+        }
+
+        tl
           // 2. Text zooms in massively (increases font-size to fill screen)
           .to(text, { fontSize: "250rem", duration: 4, ease: "power1.in" }, "+=0.2")
           // 3. Text fades out ONLY at the very end of the zoom (when it's huge)
           .to(text, { opacity: 0, duration: 0.5, ease: "power1.out" }, "-=0.5")
           // 3. Wrapper fades out to reveal content underneath
           .to(wrapper, { opacity: 0, duration: 1, ease: "power2.inOut" }, "-=1")
+          // 4. Blur deepens and a soft white wash comes in with the hero copy
+          .to(heroVideo, { filter: "blur(18px)", scale: 1.04, duration: 1.2, ease: "power2.out" }, "-=1")
+          .to(heroTint, { opacity: 0.62, duration: 1.2, ease: "power2.out" }, "<")
           // 3. Content reveals (fades in and moves up)
-          .to(content, { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" }, "-=1");
+          .to(content, { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" }, "-=1")
+          // 5. Background settles after the headline has come through
+          .to(heroVideo, { filter: "blur(80px)", scale: 1.02, duration: 1.1, ease: "power2.out" }, "-=0.15")
+          .to(heroTint, { opacity: 0.1, duration: 1.1, ease: "power2.out" }, "<");
 
         // Special handling for Hero (Auto-play if at top)
         if (index === 0) {
@@ -249,23 +268,25 @@ if (typeof gsap !== 'undefined') {
         ease: "power2.out"
     });
 
-    // Growth Over Weeks Widget
-    const growthLine = document.querySelector('.growth-line-path');
-    if (growthLine) {
-        const len = growthLine.getTotalLength();
-        gsap.set(growthLine, { strokeDasharray: len, strokeDashoffset: len });
-        gsap.to(growthLine, {
+    // Marks Opportunity Widget
+    const marksTopicRows = document.querySelectorAll('.marks-topic-row');
+    if (marksTopicRows.length > 0) {
+        gsap.from(".marks-priority-chip, .marks-topic-row", {
             scrollTrigger: { trigger: ".widget-growth-weeks", start: "top 80%" },
-            strokeDashoffset: 0,
-            duration: 2,
+            opacity: 0,
+            y: 18,
+            duration: 0.65,
+            stagger: 0.1,
             ease: "power2.out"
         });
-        gsap.from(".growth-point", {
+
+        gsap.from(".marks-focus-card, .marks-forecast-card, .marks-action-step", {
             scrollTrigger: { trigger: ".widget-growth-weeks", start: "top 80%" },
-            scale: 0,
-            duration: 0.5,
-            stagger: 0.5,
-            delay: 1
+            opacity: 0,
+            y: 18,
+            duration: 0.7,
+            stagger: 0.12,
+            ease: "power2.out"
         });
     }
 
