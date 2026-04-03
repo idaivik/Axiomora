@@ -27,19 +27,14 @@
         </div>
     </nav>
 
-    <!-- Intro Video Section -->
-    <section class="intro-section">
-        <div class="container">
-            <div class="hero-visual">
-                <video autoplay muted loop playsinline preload="auto">
-                    <source src="assets/video/Self_Growth_Animation.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-    </section>
-
     <!-- Hero Section -->
     <section class="hero-section cinematic-section" data-bg="var(--bg-grey)">
+        <div class="hero-media" aria-hidden="true">
+            <div class="hero-media-tint"></div>
+            <video autoplay muted loop playsinline preload="auto">
+                <source src="assets/video/Self_Growth_Animation.mp4" type="video/mp4">
+            </video>
+        </div>
         <div class="cinematic-wrapper">
             <h2 class="cinematic-text">What if Success didn’t feel like pressure?</h2>
         </div>
@@ -62,26 +57,55 @@
             <h2 class="cinematic-text">Improvement feel harder?<br>when you’re always compared?</h2>
         </div>
         <div class="container section-content">
-            <div class="section-header">
-                <h2 class="section-title">The Noise of Comparisons</h2><br>
-                <p class="section-desc">Modern education is filled with<br> leaderboards and constant demands.<br>This pressure erodes focus and creates anxiety instead of growth.</p>
-                <p class="section-transition">Growth shouldn’t feel like pressure.</p>
-            </div>
-            <div class="grid-3">
-                <div class="info-tile fade-up">
-                    <div class="tile-icon">⚡️</div>
-                    <h3>Overwhelm</h3>
-                    <p>Constant metrics and notifications make it impossible to find a rhythm.</p>
+            <div class="comparison-widget">
+                <div class="comparison-overview fade-up">
+                    <div class="comparison-heading">
+                        <span class="comparison-kicker">Pressure Signals</span>
+                        <h2 class="section-title">The Noise of Comparisons</h2>
+                        <p class="comparison-subtitle">Fast feedback. Slow growth.</p>
+                    </div>
+                    <div class="comparison-summary">
+                        <div class="comparison-metric">
+                            <strong>24/7</strong>
+                            <span>always on</span>
+                        </div>
+                        <div class="comparison-metric">
+                            <strong>3</strong>
+                            <span>core drags</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="info-tile fade-up delay-1">
-                    <div class="tile-icon">📉</div>
-                    <h3>Burnout</h3>
-                    <p>The pressure to outperform peers leads to exhaustion, not learning.</p>
-                </div>
-                <div class="info-tile fade-up delay-2">
-                    <div class="tile-icon">😶‍🌫️</div>
-                    <h3>Loss of Focus</h3>
-                    <p>External validation shifts attention away from deep, meaningful work.</p>
+                <div class="comparison-grid">
+                    <article class="comparison-card overload fade-up">
+                        <div class="comparison-icon" aria-hidden="true">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="comparison-card-body">
+                            <span class="comparison-label">Overwhelm</span>
+                            <h3>Too many signals</h3>
+                            <p>Alerts over rhythm.</p>
+                        </div>
+                    </article>
+                    <article class="comparison-card burnout fade-up delay-1">
+                        <div class="comparison-icon" aria-hidden="true">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="comparison-card-body">
+                            <span class="comparison-label">Burnout</span>
+                            <h3>Output gets forced</h3>
+                            <p>More push, less retention.</p>
+                        </div>
+                    </article>
+                    <article class="comparison-card drift fade-up delay-2">
+                        <div class="comparison-icon" aria-hidden="true">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="comparison-card-body">
+                            <span class="comparison-label">Focus Drift</span>
+                            <h3>Rank beats reflection</h3>
+                            <p>Looking outward, not inward.</p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </div>
@@ -95,34 +119,73 @@
         <div class="container section-content">
             <div class="row-layout">
                 <div class="content-side fade-up">
-                    <h2 class="section-title">Find your flow.</h2>
-                    <p class="section-desc">We stripped away the leaderboards to focus on what matters: you. A calm interface that adapts to your pace, encouraging consistency over intensity.</p>
-                    <ul class="feature-list">
-                        <li>Personalized pacing</li>
-                        <li>Private by design</li>
-                        <li>Zero competition</li>
-                    </ul>
+                    <div class="solution-kicker">Personal Guidance Layer</div>
+                    <h2 class="section-title solution-title">A calmer system for real progress.</h2>
+                    <p class="section-desc solution-desc">Instead of pushing harder, the app helps you notice what is working, where friction is rising, and what next step will actually move you forward.</p>
+                    <div class="solution-highlights">
+                        <div class="solution-highlight">
+                            <span class="solution-highlight-title">Private patterns</span>
+                            <p>Your rhythm stays yours. No public ranking loop.</p>
+                        </div>
+                        <div class="solution-highlight">
+                            <span class="solution-highlight-title">Clear next move</span>
+                            <p>One guided adjustment beats vague motivation.</p>
+                        </div>
+                        <div class="solution-highlight">
+                            <span class="solution-highlight-title">Sustainable pace</span>
+                            <p>Progress is tracked for stability, not intensity spikes.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="visual-side fade-up">
                     <div class="abstract-ui-panel">
-                        <div class="panel-header">Insight & Guidance</div>
+                        <div class="panel-header">
+                            <span class="panel-kicker">Clarity Engine</span>
+                            <strong>Pattern Review</strong>
+                        </div>
                         <div class="widget-insight-split">
                             <div class="insight-col left">
-                                <div class="insight-label">Current Patterns</div>
-                                <div class="insight-bar-group">
-                                    <div class="insight-bar-label">Study Consistency</div>
-                                    <div class="insight-bar"><div class="bar-fill" style="width: 60%"></div></div>
-                                    <div class="insight-bar-label">Focus Stability</div>
-                                    <div class="insight-bar"><div class="bar-fill" style="width: 45%"></div></div>
+                                <div class="insight-label">Current Signals</div>
+                                <div class="insight-score-card">
+                                    <span class="insight-score-label">Weekly Clarity</span>
+                                    <strong>72</strong>
+                                    <small>Stable, improving</small>
                                 </div>
-                                <div class="insight-status">Still forming</div>
+                                <div class="insight-bar-group">
+                                    <div class="insight-bar-row">
+                                        <div class="insight-bar-label">Consistency</div>
+                                        <div class="insight-bar-value">76%</div>
+                                    </div>
+                                    <div class="insight-bar"><div class="bar-fill" style="width: 76%"></div></div>
+                                    <div class="insight-bar-row">
+                                        <div class="insight-bar-label">Focus Stability</div>
+                                        <div class="insight-bar-value">61%</div>
+                                    </div>
+                                    <div class="insight-bar"><div class="bar-fill" style="width: 61%"></div></div>
+                                    <div class="insight-bar-row">
+                                        <div class="insight-bar-label">Recovery Buffer</div>
+                                        <div class="insight-bar-value">48%</div>
+                                    </div>
+                                    <div class="insight-bar"><div class="bar-fill" style="width: 48%"></div></div>
+                                </div>
+                                <div class="insight-status">Main friction: late-evening drop-off</div>
                             </div>
                             <div class="insight-col right">
                                 <div class="insight-label">Guided Direction</div>
+                                <div class="insight-guidance-card">
+                                    <span class="guidance-tag">Recommended Shift</span>
+                                    <strong>Shorter sessions, earlier start</strong>
+                                    <p>Reduce overload and protect retention.</p>
+                                </div>
                                 <svg class="insight-curve-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                    <path class="insight-curve-path" d="M0,80 Q50,80 100,20" fill="none" stroke="#30D158" stroke-width="3" stroke-linecap="round"></path>
+                                    <path class="insight-curve-path" d="M0,82 C20,78 34,70 48,60 C62,50 78,38 100,18" fill="none" stroke="#30D158" stroke-width="3" stroke-linecap="round"></path>
                                 </svg>
-                                <div class="insight-status optimistic">Optimized Path</div>
+                                <div class="insight-steps">
+                                    <div><span>1</span><p>Trim 25 min from final block</p></div>
+                                    <div><span>2</span><p>Move revision to morning</p></div>
+                                    <div><span>3</span><p>Review retention after 3 days</p></div>
+                                </div>
+                                <div class="insight-status optimistic">Projected path: steadier, less fragile</div>
                             </div>
                         </div>
                     </div>
@@ -145,55 +208,132 @@
                 <div class="clarity-card large fade-up widget-growth-weeks">
                     <div class="growth-header-row">
                         <div>
-                            <div class="growth-header">Student Growth Over 8 Weeks</div>
-                            <p class="growth-subtitle">A calm view of compounding progress across tests, focus blocks, and revision quality.</p>
+                            <div class="growth-header">Marks You Can Still Recover</div>
+                            <p class="growth-subtitle">Three high-impact opportunities. One clear next move.</p>
                         </div>
-                        <div class="growth-trajectory-pill">Momentum accelerating</div>
+                        <div class="growth-trajectory-pill">Score priority</div>
                     </div>
 
-                    <div class="growth-chart-area">
-                        <svg class="growth-chart-svg" viewBox="0 0 600 200" preserveAspectRatio="none">
-                            <defs>
-                                <linearGradient id="growthGreenGradient" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="0%" stop-color="#22C55E" />
-                                    <stop offset="100%" stop-color="rgba(34, 197, 94, 0.1)" />
-                                </linearGradient>
-                            </defs>
-                            <path class="growth-area-fill" d="M50,180 C150,160 300,120 550,40 V200 H50 Z" fill="url(#growthGreenGradient)" />
-                            <path class="growth-line-path" d="M50,180 C150,160 300,120 550,40" fill="none" stroke="#22C55E" stroke-width="3" stroke-linecap="round" />
-                            <circle class="growth-point" cx="50" cy="180" r="5" fill="#FFFFFF" stroke="#22C55E" stroke-width="2" />
-                            <text x="50" y="160" text-anchor="middle" class="growth-label">Week 1</text>
-                            <circle class="growth-point" cx="300" cy="115" r="5" fill="#FFFFFF" stroke="#22C55E" stroke-width="2" />
-                            <text x="300" y="100" text-anchor="middle" class="growth-label">Week 4</text>
-                            <circle class="growth-point" cx="550" cy="40" r="5" fill="#FFFFFF" stroke="#22C55E" stroke-width="2" />
-                            <text x="550" y="25" text-anchor="middle" class="growth-label">Week 8</text>
-                        </svg>
+                    <div class="marks-priority-strip">
+                        <div class="marks-priority-chip">
+                            <span class="marks-priority-label">Target</span>
+                            <strong>90+</strong>
+                        </div>
+                        <div class="marks-priority-chip">
+                            <span class="marks-priority-label">Marks At Risk</span>
+                            <strong>18</strong>
+                        </div>
+                        <div class="marks-priority-chip">
+                            <span class="marks-priority-label">Focus This Week</span>
+                            <strong>2 chapters</strong>
+                        </div>
+                    </div>
+
+                    <div class="growth-chart-area marks-opportunity-layout">
+                        <div class="marks-opportunity-list">
+                            <div class="marks-list-head">
+                                <span>Chapter</span>
+                                <span>Mark gain</span>
+                            </div>
+
+                            <div class="marks-topic-row">
+                                <div class="marks-topic-rank">1</div>
+                                <div class="marks-topic-copy">
+                                    <strong>Coordinate Geometry</strong>
+                                    <span>Weak + high weightage</span>
+                                    <div class="marks-topic-tags">
+                                        <span>45 min</span>
+                                        <span>Fastest lift</span>
+                                    </div>
+                                </div>
+                                <div class="marks-topic-metric">+6</div>
+                            </div>
+
+                            <div class="marks-topic-row">
+                                <div class="marks-topic-rank">2</div>
+                                <div class="marks-topic-copy">
+                                    <strong>Electrostatics</strong>
+                                    <span>Concept gap</span>
+                                    <div class="marks-topic-tags">
+                                        <span>30 min</span>
+                                        <span>Strong ROI</span>
+                                    </div>
+                                </div>
+                                <div class="marks-topic-metric">+5</div>
+                            </div>
+
+                            <div class="marks-topic-row">
+                                <div class="marks-topic-rank">3</div>
+                                <div class="marks-topic-copy">
+                                    <strong>Probability</strong>
+                                    <span>Quick revision win</span>
+                                    <div class="marks-topic-tags">
+                                        <span>20 min</span>
+                                        <span>Almost ready</span>
+                                    </div>
+                                </div>
+                                <div class="marks-topic-metric">+3</div>
+                            </div>
+                        </div>
+
+                        <div class="marks-opportunity-panel">
+                            <div class="marks-focus-card">
+                                <span class="marks-panel-label">Best next session</span>
+                                <strong>Geometry first. Physics after.</strong>
+                                <p>Fix weak, high-weightage topics before taking another mock.</p>
+                                <div class="marks-focus-meta">
+                                    <span>75 min total</span>
+                                    <span>Expected lift +7</span>
+                                </div>
+                            </div>
+
+                            <div class="marks-forecast-card">
+                                <span class="marks-panel-label">Projected score band</span>
+                                <div class="marks-forecast-score">88-92</div>
+                                <div class="marks-forecast-note">After 2 focused revision blocks</div>
+                                <div class="marks-confidence-row">
+                                    <span>Confidence</span>
+                                    <strong>High</strong>
+                                </div>
+                            </div>
+
+                            <div class="marks-action-steps">
+                                <div class="marks-action-step">
+                                    <span>Now</span>
+                                    <p>Geometry error log</p>
+                                </div>
+                                <div class="marks-action-step">
+                                    <span>Next</span>
+                                    <p>12 electrostatics questions</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="growth-stats-row">
-                        <div class="growth-stat-block"><div class="stat-icon">⬆</div><div class="stat-text"><span class="stat-label">Total Growth</span><span class="stat-value">+45%</span></div></div>
+                        <div class="growth-stat-block"><div class="stat-icon">+</div><div class="stat-text"><span class="stat-label">Recoverable Marks</span><span class="stat-value">18</span></div></div>
                         <div class="stat-divider"></div>
-                        <div class="growth-stat-block"><div class="stat-icon">📈</div><div class="stat-text"><span class="stat-label">Avg. Weekly Growth</span><span class="stat-value">+6.4%</span></div></div>
+                        <div class="growth-stat-block"><div class="stat-icon">%</div><div class="stat-text"><span class="stat-label">Test Readiness</span><span class="stat-value">74%</span></div></div>
                         <div class="stat-divider"></div>
-                        <div class="growth-stat-block"><div class="stat-icon">👑</div><div class="stat-text"><span class="stat-label">Peak Week</span><span class="stat-value">Week 8</span></div></div>
+                        <div class="growth-stat-block"><div class="stat-icon">2</div><div class="stat-text"><span class="stat-label">High-Impact Chapters</span><span class="stat-value">2 left</span></div></div>
                         <div class="stat-divider"></div>
-                        <div class="growth-stat-block"><div class="stat-icon">🧠</div><div class="stat-text"><span class="stat-label">Retention Lift</span><span class="stat-value">+19%</span></div></div>
+                        <div class="growth-stat-block"><div class="stat-icon">x</div><div class="stat-text"><span class="stat-label">Revision Efficiency</span><span class="stat-value">1.8x</span></div></div>
                     </div>
 
                     <div class="growth-milestones">
                         <div class="growth-milestone">
-                            <span class="growth-milestone-label">Turning point</span>
-                            <strong>Week 5</strong>
-                            <p>Practice review started translating into more stable scores.</p>
+                            <span class="growth-milestone-label">Best ROI</span>
+                            <strong>Geometry correction set</strong>
+                            <p>Biggest score lift with the least extra study time.</p>
                         </div>
                         <div class="growth-milestone">
-                            <span class="growth-milestone-label">Pattern</span>
-                            <strong>Low volatility</strong>
-                            <p>Improvement stayed steady without burnout spikes or drop-off weeks.</p>
+                            <span class="growth-milestone-label">Hidden Risk</span>
+                            <strong>Mock tests too early</strong>
+                            <p>More full tests now would expose gaps, not fix them.</p>
                         </div>
                     </div>
 
-                    <div class="growth-footer">The app shows whether progress is fragile, stable, or truly compounding over time.</div>
+                    <div class="growth-footer">The app points to marks still recoverable before the next test, not just performance already locked in.</div>
                 </div>
 
                 <!-- 2. Task Completion Rate -->
@@ -302,7 +442,7 @@
                 </div>
 
                 <!-- 4. Focus Drift Map -->
-                <div class="clarity-card medium fade-up delay-1">
+                <div class="clarity-card medium fade-up delay-1 widget-focus-drift">
                     <div class="card-header">
                         <h3>Focus Drift Map</h3>
                         <p>Spot the exact hours where attention holds and where it starts slipping.</p>
@@ -614,6 +754,8 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="auth-nav.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
