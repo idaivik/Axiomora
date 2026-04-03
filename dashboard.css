@@ -2,6 +2,7 @@
 
 :root {
     --dashboard-bg: linear-gradient(180deg, #fbf5f7 0%, #fbf5f7 100%);
+    --dashboard-blue: #0071e3;
     --dashboard-surface: rgba(250, 251, 253, 0.9);
     --dashboard-surface-soft: rgba(247, 249, 252, 0.92);
     --dashboard-surface-strong: rgba(243, 246, 250, 0.94);
